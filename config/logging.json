@@ -1,0 +1,39 @@
+
+{
+  "disable_existing_loggers": true,
+  "filters": {
+    "special": {
+      "()": "project.logging.SpecialFilter",
+      "foo": "bar"
+    }
+  },
+  "formatters": {
+    "verbose": {
+      "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"
+    },
+    "simple": {
+      "format": "%(levelname)s %(message)s"
+    }
+  },
+  "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "json",
+            "level": "DEBUG",
+            "stream": "ext://sys.stdout"
+        },
+        "error": {
+            "class": "logging.StreamHandler",
+            "formatter": "json",
+            "level": "ERROR",
+            "stream": "ext://sys.stderr"
+        }
+    },
+    "loggers": { },
+    "console": {
+      "level": "DEBUG",
+      "class": "logging.StreamHandler",
+      "formatter": "simple"
+    },
+  "version": 1
+}
